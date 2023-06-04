@@ -1,17 +1,32 @@
 package com.mindspace.app.usecases.login;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.mindspace.app.R;
-import com.mindspace.app.usecases.registrarse.Registrarse;
+import com.mindspace.app.model.user.AuthenticationUser;
+import com.mindspace.app.model.user.UsuarioGet;
+import com.mindspace.app.usecases.registrarse.RegistrarseActivity;
 
+//TODO NOMENCLATURA DE ID DE ACUERDO A LA ACTIVIDAD
+//TODO ESTRCUTURA DE NOMBRES DE LAYOUT DE ACUERDO A LA ACTIVIDAD
+//TODO TIEMPO DE DISEÑO
 public class LoginActivity extends AppCompatActivity {
+
+    private Button btnRegister;
+    private Button btnLogin;
+
+    private EditText etEmail;
+    private EditText etPassword;
+    private LoginViewModel loginViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,19 +43,62 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_login);
-        // Resto del código de tu actividad
 
-        Button buttonRegister = findViewById(R.id.buttonRegister);
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Acción a realizar al hacer clic en el botón "Register"
-                // Por ejemplo, iniciar una nueva actividad
-                Intent intent = new Intent(LoginActivity.this, Registrarse.class);
-                startActivity(intent);
-            }
-        });
+         this.loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+
+
+        this.btnRegister = findViewById(R.id.buttonRegister);
+        this.setListenerBtnRegister();
+
+        this.btnLogin = findViewById(R.id.buttonLogin);
+        this.setListenerBtnLogin();
+
+        this.etEmail = findViewById(R.id.Login_etEmail);
+        this.etPassword = findViewById(R.id.Login_etPassword);
+
+        this.setListenerResponseAuthentication();
     }
 
 
+    private void setListenerBtnRegister(){
+        btnRegister.setOnClickListener(view -> {
+            Intent intent = new Intent(LoginActivity.this, RegistrarseActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    private void setListenerBtnLogin(){
+        this.btnLogin.setOnClickListener(view -> validateLogin());
+    }
+
+
+
+    private void validateLogin(){
+        String email = this.etEmail.getText().toString();
+        String password = this.etPassword.getText().toString();
+        if ( !email.trim().isEmpty()
+                && !password.trim().isEmpty() ){
+
+            AuthenticationUser user = AuthenticationUser.builder()
+                    .email(email)
+                    .password(password)
+                    .build();
+
+            this.loginViewModel.login(user);
+
+
+        }else {
+            Toast.makeText(this,"Escriba un correo y contraseña correcto", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void setListenerResponseAuthentication(){
+        this.loginViewModel.getResponseAuthenticacion().observe(this, responseAuth -> {
+            if(responseAuth){
+                Toast.makeText(this,"Bienvenido", Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(this,"Correo o contraseña no valido", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }
