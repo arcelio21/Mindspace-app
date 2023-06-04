@@ -14,7 +14,7 @@ import com.mindspace.app.util.Encrypt;
 /**
  * ViewModel para el registro de usuarios.
  */
-public class RegisterViewModel extends ViewModel implements ListenerAuthentication, ListenerResponseFirabase {
+public class RegisterViewModel extends ViewModel implements ListenerAuthentication {
 
     private UserService userService;
     private final MutableLiveData<Boolean> responseAuthenticacion = new MutableLiveData<>();
@@ -69,10 +69,5 @@ public class RegisterViewModel extends ViewModel implements ListenerAuthenticati
      */
     public MutableLiveData<Boolean> getResponseAuthenticacion() {
         return responseAuthenticacion;
-    }
-
-    @Override
-    public void notifyChange(Boolean response) {
-
     }
 }
