@@ -24,6 +24,11 @@ public class UserService {
     }
 
 
+    /**
+     Crea una cuenta de usuario utilizando el servicio de autenticación.
+     @param authenticationUser Objeto que contiene la información de autenticación del usuario.
+     @return N/A
+     */
     public void creacionCuenta(AuthenticationUser authenticationUser){
 
 
@@ -46,9 +51,8 @@ public class UserService {
 
     /**
      * Inicia sesión de usuario.
-     *
      * @param authenticationUser El objeto AuthenticationUser con los datos de autenticación del usuario.
-     * @return true si el inicio de sesión es exitoso, false de lo contrario.
+     * @return N/A
      */
     public void login(AuthenticationUser authenticationUser){
 
