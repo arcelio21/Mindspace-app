@@ -62,6 +62,10 @@ public class RegistrarseActivity extends AppCompatActivity {
 
     }
 
+
+    /**
+     * Establece el listener para el botón "Volver al inicio de sesión".
+     */
     private void setListenerButtonBackLogin(){
         this.btnBackLogin.setOnClickListener(view -> {
             // Acción a realizar al hacer clic en el botón "ya tengo cuenta"
@@ -71,6 +75,9 @@ public class RegistrarseActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Establece el listener para el botón "Registrarme".
+     */
     //TODO CAMBIAR IMPLEMENTACION DE OBTENCION DE DATOS DE USUAIORS
     private void setListenerButtonRegistrarme(){
 
@@ -105,6 +112,9 @@ public class RegistrarseActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Establece el listener para la respuesta de autenticación.
+     */
     private void setListenerResponseAuthentication(){
         this.registerViewModel.getResponseAuthenticacion().observe(this, responseAuth -> {
             if(responseAuth){
