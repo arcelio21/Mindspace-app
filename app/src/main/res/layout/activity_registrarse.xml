@@ -76,6 +76,7 @@
 
             <EditText
                 android:id="@+id/etEdad"
+                android:inputType="number"
                 android:layout_width="270dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="25dp"
@@ -106,6 +107,7 @@
 
             <EditText
                 android:id="@+id/etPassword"
+                android:inputType="textPassword"
                 android:layout_width="270dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="25dp"
