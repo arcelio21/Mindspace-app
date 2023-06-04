@@ -5,14 +5,16 @@ import androidx.lifecycle.ViewModel;
 
 import com.mindspace.app.model.user.AuthenticationUser;
 import com.mindspace.app.model.user.UsuarioGet;
+import com.mindspace.app.model.user.UsuarioPost;
 import com.mindspace.app.provider.service.firebase.user.UserService;
 import com.mindspace.app.usecases.base.ListenerAuthentication;
+import com.mindspace.app.usecases.base.ListenerResponseFirabase;
 import com.mindspace.app.util.Encrypt;
 
 /**
  * ViewModel para el registro de usuarios.
  */
-public class RegisterViewModel extends ViewModel implements ListenerAuthentication {
+public class RegisterViewModel extends ViewModel implements ListenerAuthentication, ListenerResponseFirabase {
 
     private UserService userService;
     private final MutableLiveData<Boolean> responseAuthenticacion = new MutableLiveData<>();
@@ -27,7 +29,7 @@ public class RegisterViewModel extends ViewModel implements ListenerAuthenticati
      *
      * @param user Objeto AuthenticationUser que contiene la información de autenticación del usuario.
      */
-    public void createAccount(AuthenticationUser user){
+    public void createAccount(AuthenticationUser user, UsuarioPost usuarioPost){
 
         AuthenticationUser userFinal =AuthenticationUser.builder()
                 .email(user.getEmail())
@@ -35,7 +37,7 @@ public class RegisterViewModel extends ViewModel implements ListenerAuthenticati
                 .build();
 
 
-        this.userService.creacionCuenta(userFinal);
+        this.userService.creacionCuenta(userFinal, usuarioPost);
     }
 
 
@@ -67,5 +69,10 @@ public class RegisterViewModel extends ViewModel implements ListenerAuthenticati
      */
     public MutableLiveData<Boolean> getResponseAuthenticacion() {
         return responseAuthenticacion;
+    }
+
+    @Override
+    public void notifyChange(Boolean response) {
+
     }
 }
