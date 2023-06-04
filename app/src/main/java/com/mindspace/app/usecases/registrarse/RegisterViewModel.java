@@ -9,6 +9,9 @@ import com.mindspace.app.provider.service.firebase.user.UserService;
 import com.mindspace.app.usecases.base.ListenerAuthentication;
 import com.mindspace.app.util.Encrypt;
 
+/**
+ * ViewModel para el registro de usuarios.
+ */
 public class RegisterViewModel extends ViewModel implements ListenerAuthentication {
 
     private UserService userService;
@@ -19,6 +22,11 @@ public class RegisterViewModel extends ViewModel implements ListenerAuthenticati
         this.userService = new UserService(this);
     }
 
+    /**
+     * Crea una cuenta de usuario.
+     *
+     * @param user Objeto AuthenticationUser que contiene la información de autenticación del usuario.
+     */
     public void createAccount(AuthenticationUser user){
 
         AuthenticationUser userFinal =AuthenticationUser.builder()
@@ -31,17 +39,32 @@ public class RegisterViewModel extends ViewModel implements ListenerAuthenticati
     }
 
 
+    /**
+     * Obtener datos del usuario.
+     *
+     * @param email Email del usuario para obtener sus datos.
+     * @return Objeto UsuarioGet con los datos del usuario.
+     */
     public UsuarioGet getDataUser(String email){
 
         email = Encrypt.encrypt(email);
         return null;
     }
 
+    /**
+     * Método de notificación de respuesta de autenticación.
+     *
+     * @param response Respuesta de autenticación.
+     */
     @Override
     public void notifyResponse(Boolean response) {
         this.responseAuthenticacion.postValue(response);
     }
 
+    /**
+     * Obtener el LiveData de respuesta de autenticación.
+     * @return LiveData<Boolean> con la respuesta de autenticación.
+     */
     public MutableLiveData<Boolean> getResponseAuthenticacion() {
         return responseAuthenticacion;
     }
