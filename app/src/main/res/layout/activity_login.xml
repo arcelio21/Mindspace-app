@@ -76,7 +76,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/correo"
+                android:id="@+id/Login_etEmail"
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="85dp"
@@ -99,7 +99,7 @@
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/pass"
+                android:id="@+id/Login_etPassword"
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="155dp"
