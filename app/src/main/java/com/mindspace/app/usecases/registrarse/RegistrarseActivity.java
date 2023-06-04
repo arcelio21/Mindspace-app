@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.mindspace.app.model.user.AuthenticationUser;
+import com.mindspace.app.model.user.UsuarioPost;
 import com.mindspace.app.usecases.login.LoginActivity;
 import com.mindspace.app.R;
 
@@ -83,7 +84,7 @@ public class RegistrarseActivity extends AppCompatActivity {
 
         this.btnRegister.setOnClickListener(view ->{
 
-            String email = this.etEmail.getText().toString();
+            String email = this.etEmail.getText().toString().trim();
             String password = this.etPassword.getText().toString();
 
             if(!email.trim().isEmpty() && !password.trim().isEmpty()){
@@ -95,12 +96,19 @@ public class RegistrarseActivity extends AppCompatActivity {
 
                 if(!nombre.trim().isEmpty() && !apellido.trim().isEmpty() && edad>0){
 
-                    AuthenticationUser user = AuthenticationUser.builder()
+                    AuthenticationUser userAuth = AuthenticationUser.builder()
                             .email(email)
                             .password(password)
                             .build();
 
-                    this.registerViewModel.createAccount(user);
+                    UsuarioPost usuarioPost = UsuarioPost.builder()
+                            .email(email)
+                            .nombre(nombre)
+                            .apellido(apellido)
+                            .edad(edad)
+                            .build();
+
+                    this.registerViewModel.createAccount(userAuth, usuarioPost);
 
                 }else {
                     Toast.makeText(this,"Ingrese los datos completos", Toast.LENGTH_SHORT).show();
