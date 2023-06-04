@@ -7,9 +7,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.mindspace.app.model.user.AuthenticationUser;
 import com.mindspace.app.model.user.UsuarioPost;
 import com.mindspace.app.usecases.base.ListenerAuthentication;
-import com.mindspace.app.usecases.base.ListenerResponseFirabase;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 
@@ -57,30 +55,6 @@ public class UserService {
     }
 
     /**
-     * Inicia sesión de usuario.
-     * @param authenticationUser El objeto AuthenticationUser con los datos de autenticación del usuario.
-     * @return N/A
-     */
-    public void login(AuthenticationUser authenticationUser){
-
-        if(authenticationUser==null
-                ||authenticationUser.getEmail()==null ||authenticationUser.getEmail().trim().isEmpty()
-                || authenticationUser.getPassword()==null ||authenticationUser.getPassword().trim().isEmpty()
-        ){
-            this.listenerAuth.notifyResponse(false);
-            return;
-        }
-
-
-        this.authentication.
-                signInWithEmailAndPassword(authenticationUser.getEmail(), authenticationUser.getPassword())
-                .addOnCompleteListener(task -> {
-                    this.listenerAuth.notifyResponse(task.isSuccessful());
-                });
-
-    }
-
-    /**
      * Guarda un objeto UsuarioPost en la base de datos.
      *TODO PENSAR EN PONERLO VOID
      * @param usuarioPost El objeto UsuarioPost a guardar.
@@ -105,6 +79,14 @@ public class UserService {
         response.addOnCompleteListener(task -> {
             this.listenerAuth.notifyResponse(task.isSuccessful());
         });
+
+        //EN CASO DE QUE NO SE GUARDA LOS DATOS EN LA COLECCION DE USUARIO
+        //SE ELIMINA EL USUARIO QUE SE CREO EN LA AUTENTIFICACION
+        response.addOnFailureListener(runnable -> {
+            if(this.authentication.getCurrentUser()!=null){
+                this.authentication.getCurrentUser().delete();
+            }
+        });
     }
 
     /**
@@ -120,4 +102,31 @@ public class UserService {
                 "diario", Collections.emptyList());
 
     }
+
+
+
+    /**
+     * Inicia sesión de usuario.
+     * @param authenticationUser El objeto AuthenticationUser con los datos de autenticación del usuario.
+     * @return N/A
+     */
+    public void login(AuthenticationUser authenticationUser){
+
+        if(authenticationUser==null
+                ||authenticationUser.getEmail()==null ||authenticationUser.getEmail().trim().isEmpty()
+                || authenticationUser.getPassword()==null ||authenticationUser.getPassword().trim().isEmpty()
+        ){
+            this.listenerAuth.notifyResponse(false);
+            return;
+        }
+
+
+        this.authentication.
+                signInWithEmailAndPassword(authenticationUser.getEmail(), authenticationUser.getPassword())
+                .addOnCompleteListener(task -> {
+                    this.listenerAuth.notifyResponse(task.isSuccessful());
+                });
+
+    }
+    
 }
