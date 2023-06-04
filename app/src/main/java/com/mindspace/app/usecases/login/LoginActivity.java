@@ -1,8 +1,5 @@
 package com.mindspace.app.usecases.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,9 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.mindspace.app.R;
 import com.mindspace.app.model.user.AuthenticationUser;
-import com.mindspace.app.model.user.UsuarioGet;
 import com.mindspace.app.usecases.registrarse.RegistrarseActivity;
 
 //TODO NOMENCLATURA DE ID DE ACUERDO A LA ACTIVIDAD
@@ -60,6 +59,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Establece el listener para el botón "Registrarse".
+     */
     private void setListenerBtnRegister(){
         btnRegister.setOnClickListener(view -> {
             Intent intent = new Intent(LoginActivity.this, RegistrarseActivity.class);
@@ -67,12 +69,18 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Establece el listener para el botón "Iniciar sesión".
+     */
     private void setListenerBtnLogin(){
         this.btnLogin.setOnClickListener(view -> validateLogin());
     }
 
 
 
+    /**
+     * Valida el inicio de sesión.
+     */
     private void validateLogin(){
         String email = this.etEmail.getText().toString();
         String password = this.etPassword.getText().toString();
@@ -92,6 +100,9 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Establece el listener para la respuesta de autenticación.
+     */
     private void setListenerResponseAuthentication(){
         this.loginViewModel.getResponseAuthenticacion().observe(this, responseAuth -> {
             if(responseAuth){
