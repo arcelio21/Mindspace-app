@@ -7,7 +7,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.mindspace.app.model.user.AuthenticationUser;
 import com.mindspace.app.model.user.UsuarioPost;
 import com.mindspace.app.usecases.base.ListenerAuthentication;
+import com.mindspace.app.usecases.base.ListenerResponseFirabase;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 
 public class UserService {
@@ -15,7 +18,8 @@ public class UserService {
     private final FirebaseAuth authentication;
     private final FirebaseFirestore baseDatos;
 
-    private ListenerAuthentication listenerAuth;
+    private final ListenerAuthentication listenerAuth;
+
 
     public UserService(ListenerAuthentication authentication) {
         this.baseDatos = FirebaseFirestore.getInstance();
@@ -29,7 +33,7 @@ public class UserService {
      @param authenticationUser Objeto que contiene la información de autenticación del usuario.
      @return N/A
      */
-    public void creacionCuenta(AuthenticationUser authenticationUser){
+    public void creacionCuenta(AuthenticationUser authenticationUser, UsuarioPost usuarioPost){
 
 
         if(authenticationUser==null
@@ -45,7 +49,10 @@ public class UserService {
         );
 
         response.addOnCompleteListener(task -> {
-            this.listenerAuth.notifyResponse(task.isSuccessful());
+
+            if(task.isSuccessful()){
+                this.save(usuarioPost);
+            }
         });
     }
 
@@ -79,7 +86,7 @@ public class UserService {
      * @param usuarioPost El objeto UsuarioPost a guardar.
      * @return true si se guarda exitosamente, false de lo contrario.
      */
-    public Boolean save(UsuarioPost usuarioPost){
+    private void save(UsuarioPost usuarioPost){
 
         if(usuarioPost==null
              || usuarioPost.getEmail()==null || usuarioPost.getEmail().trim().isEmpty()
@@ -87,13 +94,17 @@ public class UserService {
              || usuarioPost.getApellido()==null || usuarioPost.getApellido().trim().isEmpty()
              || usuarioPost.getEdad()==null || usuarioPost.getEdad()<=0
         ){
-            return  false;
+            this.listenerAuth.notifyResponse(false);
+            return;
         }
 
         Task<Void> response = this.baseDatos.collection("usuarios")
                 .document(usuarioPost.getEmail())
                 .set(this.usuarioPostToMapToSave(usuarioPost));
-        return response.isSuccessful();
+
+        response.addOnCompleteListener(task -> {
+            this.listenerAuth.notifyResponse(task.isSuccessful());
+        });
     }
 
     /**
@@ -105,7 +116,8 @@ public class UserService {
     private Map<String, Object> usuarioPostToMapToSave(UsuarioPost user){
         return Map.of("nombre", user.getNombre(),
                 "apellido", user.getApellido(),
-                "edad", user.getEdad());
+                "edad", user.getEdad(),
+                "diario", Collections.emptyList());
 
     }
 }
