@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
      * Valida el inicio de sesión.
      */
     private void validateLogin(){
-        String email = this.etEmail.getText().toString();
+        String email = this.etEmail.getText().toString().trim();
         String password = this.etPassword.getText().toString();
         if ( !email.trim().isEmpty()
                 && !password.trim().isEmpty() ){
