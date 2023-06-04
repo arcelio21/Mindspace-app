@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Mindspace</string>
+    <string name="app_version">Version 1.0</string>
+    <string name="registrarme"><u>Registrarme</u></string>
+    <string name="regresar"><u>Ya tengo cuenta</u></string>
+    
+    <!-- STRING LOGIN ACTIVITY-->
+    <string name="Login_tvTitle">Mindspace</string>
+    <string name="Login_tvSubTitle">Bienvendio</string>
+    <string name="Login_tvIniciarSesion">INICIAR SESIÓN</string>
+    <string name="Login_tvEmail">Correo Electrónico</string>
+    <string name="Login_tvPassword">Contrase{a</string>
+    <string name="Login_btnLogin">Iniciar Sesión</string>
+    <string name="Login_btnRegister">Registrarme</string>
+
+    <!--STRING REGISTER ACTIVITY-->
+    <string name="Register_tvTittle">Unete a MindSpace</string>
+    <string name="Register_et_hint_nombre">Nombre</string>
+    <string name="Register_et_hint_apellido">Apellido</string>
+    <string name="Register_et_hint_edad">Edad</string>
+    <string name="Register_et_hint_email">Correo Electrónico</string>
+    <string name="Register_et_hint_password">Contraseña</string>
+    <string name="Register_btnRegister">Registrase</string>
+    <string name="Register_btnBackLogin">Ya tengo cuenta</string>
+
+</resources>

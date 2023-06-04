@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".usecases.login.LoginActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--- Fondo de pantalla -->
+        <ImageView
+            android:id="@+id/backgroundImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/wlogin"
+            android:alpha="0.55"
+            android:scaleType="centerCrop" />
+
+        <!--- Titulo -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Login_tvTitle"
+            android:textSize="25sp"
+            android:textColor="#FFFFFF"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/raleway_medium"
+            />
+
+        <!--- Subtitulo -->
+        <TextView
+            android:id="@+id/Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Login_tvSubTitle"
+            android:textSize="15sp"
+            android:textColor="#050505"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp"
+            android:fontFamily="@font/raleway_medium"
+            />
+
+        <!-- Shape como contenedor -->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_carta"
+            android:padding="16dp">
+
+            <!--TODO CAMBIAR GRAVITY DE LAYOUT PADRE-->
+            <!-- texto e inputs -->
+            <TextView
+                android:id="@+id/tvIniciarSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_light"
+                android:text="@string/Login_tvIniciarSesion"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/Login_tvEmail"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/correo"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="85dp"
+                android:backgroundTint="#FFFFFF"
+                android:hint="."
+                android:paddingLeft="2dp"
+                android:textColorHint="#453D3D"
+                android:singleLine="true"
+                android:maxLength="25"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="135dp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/Login_tvPassword"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/pass"
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="155dp"
+                android:backgroundTint="#FFFFFF"
+                android:hint="."
+                android:paddingLeft="5dp"
+                android:textColorHint="#453D3D"
+                android:singleLine="true"
+                android:maxLength="25"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/buttonLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="220dp"
+                android:layout_marginBottom="12dp"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/btn_redondeado"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/Login_btnLogin"
+                android:textColor="#F9847E"
+                android:textSize="15sp"
+                app:iconTint="#FDFCFC" />
+
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/buttonRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="540dp"
+            android:layout_marginBottom="12dp"
+            android:background="#00FFFFFF"
+            android:backgroundTint="@color/btn_login"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/Login_btnRegister"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            />
+
+
+        <!--- Pie de pagina -->
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_version"
+            android:textSize="15sp"
+            android:textColor="#603E3E"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="700dp"
+            android:fontFamily="@font/raleway_medium"
+            />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

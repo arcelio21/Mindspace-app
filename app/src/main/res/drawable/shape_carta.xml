@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#80F9847E" /> <!-- Color negro con opacidad al 50% (80 en hexadecimal) -->
+    <corners android:radius="35dp" /> <!-- Radio de los bordes de 35dp -->
+</shape>
