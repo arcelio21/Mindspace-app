@@ -7,6 +7,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.mindspace.app.model.user.AuthenticationUser;
 import com.mindspace.app.model.user.UsuarioPost;
 import com.mindspace.app.usecases.base.ListenerAuthentication;
+import com.mindspace.app.usecases.base.ListenerResponseFirabase;
 
 import java.util.Collections;
 import java.util.Map;
@@ -128,5 +129,20 @@ public class UserService {
                 });
 
     }
-    
+
+    public void update(UsuarioPost usuarioPost, ListenerResponseFirabase listenerResponseFirabase){
+
+        if(usuarioPost==null
+                || usuarioPost.getEmail()==null || usuarioPost.getEmail().trim().isEmpty()
+                || usuarioPost.getNombre()==null || usuarioPost.getNombre().trim().isEmpty()
+                || usuarioPost.getApellido()==null || usuarioPost.getApellido().trim().isEmpty()
+                || usuarioPost.getEdad()==null || usuarioPost.getEdad()<=0
+        ){
+            listenerResponseFirabase.notifyChange(null);
+            return;
+        }
+
+        //TODO TERMINAR DE IMPLEMENTAR
+    }
+
 }
