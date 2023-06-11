@@ -9,7 +9,7 @@
     <string name="Login_tvSubTitle">Bienvendio</string>
     <string name="Login_tvIniciarSesion">INICIAR SESIÓN</string>
     <string name="Login_tvEmail">Correo Electrónico</string>
-    <string name="Login_tvPassword">Contrase{a</string>
+    <string name="Login_tvPassword">Contraseña</string>
     <string name="Login_btnLogin">Iniciar Sesión</string>
     <string name="Login_btnRegister">Registrarme</string>
 
