@@ -99,8 +99,7 @@ public class UserService {
     private Map<String, Object> usuarioPostToMapToSave(UsuarioPost user){
         return Map.of("nombre", user.getNombre(),
                 "apellido", user.getApellido(),
-                "edad", user.getEdad(),
-                "diario", Collections.emptyList());
+                "edad", user.getEdad());
 
     }
 
