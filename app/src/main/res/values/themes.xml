@@ -15,4 +15,10 @@
         <!-- Customize your theme here. -->
 
     </style>
+
+    <style name="SwitchColorStyle" parent="Theme.MaterialComponents">
+        <item name="colorControlActivated">#FF0000</item> <!-- Cambia el color del switch cuando está activado -->
+        <item name="colorSwitchThumbNormal">#00FF00</item> <!-- Cambia el color del botón deslizante del switch -->
+    </style>
+
 </resources>

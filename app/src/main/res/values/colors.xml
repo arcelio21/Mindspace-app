@@ -8,5 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="btn_login">#E5E5E5</color>
+    <color name="btn_disabled">#CFBAEE</color>
 
 </resources>

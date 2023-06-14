@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SwitchColorStyle" parent="Theme.MaterialComponents">
+        <item name="colorControlActivated">#673AB7</item> <!-- Cambia el color del switch cuando está activado -->
+        <item name="colorSwitchThumbNormal">#464A46</item> <!-- Cambia el color del botón deslizante del switch -->
+    </style>
+
+</resources>

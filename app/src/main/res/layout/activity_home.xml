@@ -17,6 +17,297 @@
             android:layout_height="match_parent"
             android:src="@drawable/fondomenu"
             android:scaleType="centerCrop" />
+
+        <!--- Texto de MindSpace -->
+        <TextView
+            android:id="@+id/NameApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Home_NameApp"
+            android:textSize="18sp"
+            android:layout_marginLeft="25dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_semibold"
+            />
+
+        <!--- Texto de Bienvenida al usuario -->
+        <TextView
+            android:id="@+id/SaludaUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Home_SaludaUsuario"
+            android:textSize="36sp"
+            android:layout_marginLeft="25dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="55dp"
+            android:fontFamily="@font/inter_bold"
+            />
+
+        <!--- Texto del usuario -->
+        <TextView
+            android:id="@+id/Usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Home_Usuario"
+            android:textSize="36sp"
+            android:layout_marginLeft="25dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="100dp"
+            android:fontFamily="@font/inter_bold"
+            />
+
+        <!--- Boton de Actividades -->
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="25dp"
+            android:textAllCaps="false"
+            android:layout_marginTop="165dp"
+            app:cornerRadius="100dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/Btn_Actividades"
+            android:textColor="#6200EE"
+            android:textSize="15sp"
+            app:iconTint="#FDFCFC" />
+
+        <!--- Boton de Estadisticas -->
+        <Button
+            android:id="@+id/buttonEstadisticas"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="190dp"
+            android:layout_marginTop="165dp"
+            app:cornerRadius="100dp"
+            android:backgroundTint="@color/btn_disabled"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/Btn_Estadisticas"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <!--- Cuadro blanco -->
+        <FrameLayout
+            android:layout_width="360dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="230dp"
+            android:layout_marginLeft="25dp"
+            android:background="@drawable/shape_cartawhite"
+            android:padding="16dp">
+
+            <!--- Titulo de Mensajes -->
+            <TextView
+                android:id="@+id/TituloMensaje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/Home_Mensaje"
+                android:textColor="#6200EE"
+                android:textSize="20sp" />
+
+            <!--- texto de mensajes -->
+            <TextView
+                android:id="@+id/TextoMensaje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/Home_TextoMensaje"
+                android:textColor="#000000"
+                android:textSize="15sp" />
+
+            <!--- Boton de compartir -->
+            <ImageButton
+                android:id="@+id/Home_Compartir"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="#00FFFFFF"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_share"
+                android:layout_marginLeft="295dp"
+                app:tint="#6200EE">
+            </ImageButton>
+
+            <!--- Boton de atras -->
+            <ImageButton
+                android:id="@+id/Home_Atras"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="#00FFFFFF"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_back"
+                android:layout_marginLeft="265dp"
+                android:layout_marginTop="75dp"
+                app:tint="#6200EE">
+            </ImageButton>
+
+            <!--- Boton de siguiente -->
+            <ImageButton
+                android:id="@+id/Home_siguiente"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="#00FFFFFF"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_back"
+                android:layout_marginLeft="295dp"
+                android:layout_marginTop="75dp"
+                app:tint="#6200EE"
+                android:scaleX="-1">
+            </ImageButton>
+
+        </FrameLayout>
+
+        <!--- Texto de Categorias -->
+        <TextView
+            android:id="@+id/Home_Categorias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Home_TextoCategorias"
+            android:textSize="25sp"
+            android:layout_marginLeft="245dp"
+            android:textColor="#5A29A0"
+            android:layout_marginTop="380dp"
+            android:fontFamily="@font/inter_bold"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="112dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="420dp"
+                app:cornerRadius="15dp"
+                android:letterSpacing="0"
+                android:text="@string/Home_btnDiario"
+                android:textColor="#5A29A0"
+                android:fontFamily="@font/inter_bold"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:gravity="center_horizontal"
+
+                />
+
+            <Button
+                android:layout_width="113dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="420dp"
+                app:cornerRadius="15dp"
+                android:text="@string/Home_btnRelajarse"
+                android:letterSpacing="0"
+                android:textColor="#5A29A0"
+                android:fontFamily="@font/inter_bold"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="12dp"
+                />
+
+            <Button
+                android:layout_width="112dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="420dp"
+                app:cornerRadius="15dp"
+                android:letterSpacing="0"
+                android:text="@string/Home_btnMusica"
+                android:textColor="#5A29A0"
+                android:fontFamily="@font/inter_bold"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:gravity="center_horizontal"
+                android:layout_marginStart="12dp"
+                />
+
+        </LinearLayout>
+
+        <!--- Boton de Diario -->
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_diario"
+            android:layout_marginLeft="56dp"
+            android:layout_marginTop="475dp"
+            app:tint="#5A29A0">
+        </ImageButton>
+
+        <!--- Boton de Relajarse -->
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_relajarse"
+            android:layout_marginLeft="183dp"
+            android:layout_marginTop="475dp"
+            app:tint="#5A29A0">
+        </ImageButton>
+
+        <!--- Boton de Musica -->
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_musica"
+            android:layout_marginLeft="306dp"
+            android:layout_marginTop="475dp"
+            app:tint="#5A29A0">
+        </ImageButton>
+
+        <!--- Boton de Ajustes -->
+        <ImageButton
+            android:id="@+id/Home_Ajustes"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_ajustes"
+            android:layout_marginLeft="360dp"
+            android:layout_marginTop="650dp"
+            app:tint="#FDFDFD">
+        </ImageButton>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="650dp"
+            android:theme="@style/SwitchColorStyle"
+            >
+        </Switch>
+
+        <!--- imagen de musica -->
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_musica"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="650dp"
+            app:tint="#FDFDFD">
+        </ImageButton>
+
+        <!--- Boton de Usuario -->
+        <ImageButton
+            android:id="@+id/Home_BtnUsuario"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_usuario"
+            android:layout_marginLeft="350dp"
+            android:layout_marginTop="20dp"
+            app:tint="#FDFDFD">
+        </ImageButton>
     </RelativeLayout>
 
 

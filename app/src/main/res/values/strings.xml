@@ -23,4 +23,22 @@
     <string name="Register_btnRegister">Registrase</string>
     <string name="Register_btnBackLogin">Ya tengo cuenta</string>
 
+    <!--STRING HOME ACTIVITY-->
+    <string name="Home_NameApp">MindSpace</string>
+    <string name="Home_SaludaUsuario">Hola</string>
+    <string name="Home_Usuario">Nombre Apellido</string>
+    <string name="Btn_Actividades">Actividades</string>
+    <string name="Btn_Estadisticas">Estadisticas</string>
+    <string name="Home_Mensaje">Mensajes del dia</string>
+    <string name="Home_TextoMensaje">Aqui va el texto</string>
+    <string name="Home_TextoCategorias">Categorias</string>
+    <string name="Home_btnDiario">Diario</string>
+    <string name="Home_btnRelajarse">Relajarse</string>
+    <string name="Home_btnMusica">Musica</string>
+
+
+
+
+
+
 </resources>

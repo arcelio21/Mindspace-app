@@ -82,10 +82,10 @@
                 android:layout_marginTop="85dp"
                 android:backgroundTint="#FFFFFF"
                 android:hint="."
-                android:paddingLeft="2dp"
-                android:textColorHint="#453D3D"
-                android:singleLine="true"
                 android:maxLength="25"
+                android:paddingLeft="2dp"
+                android:singleLine="true"
+                android:textColorHint="#453D3D"
                 android:textSize="18sp" />
 
 
@@ -100,16 +100,16 @@
 
             <EditText
                 android:id="@+id/Login_etPassword"
-                android:inputType="textPassword"
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="155dp"
                 android:backgroundTint="#FFFFFF"
                 android:hint="."
-                android:paddingLeft="5dp"
-                android:textColorHint="#453D3D"
-                android:singleLine="true"
+                android:inputType="textPassword"
                 android:maxLength="25"
+                android:paddingLeft="5dp"
+                android:singleLine="true"
+                android:textColorHint="#453D3D"
                 android:textSize="20sp" />
 
             <Button
@@ -118,8 +118,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="220dp"
                 android:layout_marginBottom="12dp"
-                android:backgroundTint="@color/white"
                 android:background="@drawable/btn_redondeado"
+                android:backgroundTint="@color/white"
                 android:fontFamily="@font/raleway_medium"
                 android:text="@string/Login_btnLogin"
                 android:textColor="#F9847E"
