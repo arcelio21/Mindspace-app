@@ -12,6 +12,9 @@
         android:theme="@style/Theme.mindspace"
         tools:targetApi="31">
         <activity
+            android:name=".usecases.home.HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".usecases.registrarse.RegistrarseActivity"
             android:exported="false" />
         <activity

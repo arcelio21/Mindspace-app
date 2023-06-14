@@ -3,7 +3,7 @@
     <string name="app_version">Version 1.0</string>
     <string name="registrarme"><u>Registrarme</u></string>
     <string name="regresar"><u>Ya tengo cuenta</u></string>
-    
+
     <!-- STRING LOGIN ACTIVITY-->
     <string name="Login_tvTitle">Mindspace</string>
     <string name="Login_tvSubTitle">Bienvendio</string>
