@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.mindspace.app.R;
 import com.mindspace.app.model.user.AuthenticationUser;
+import com.mindspace.app.usecases.home.HomeActivity;
 import com.mindspace.app.usecases.registrarse.RegistrarseActivity;
 
 //TODO NOMENCLATURA DE ID DE ACUERDO A LA ACTIVIDAD
@@ -106,7 +107,8 @@ public class LoginActivity extends AppCompatActivity {
     private void setListenerResponseAuthentication(){
         this.loginViewModel.getResponseAuthenticacion().observe(this, responseAuth -> {
             if(responseAuth){
-                Toast.makeText(this,"Bienvenido", Toast.LENGTH_SHORT).show();
+                Intent activity_home = new Intent(this, HomeActivity.class);
+                startActivity(activity_home);
             }else {
                 Toast.makeText(this,"Correo o contraseña no valido", Toast.LENGTH_SHORT).show();
             }
