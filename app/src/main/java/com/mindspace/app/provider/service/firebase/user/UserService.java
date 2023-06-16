@@ -1,10 +1,14 @@
 package com.mindspace.app.provider.service.firebase.user;
 
+import android.util.Log;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mindspace.app.model.user.AuthenticationUser;
+import com.mindspace.app.model.user.UsuarioGet;
 import com.mindspace.app.model.user.UsuarioPost;
 import com.mindspace.app.usecases.base.ListenerAuthentication;
 import com.mindspace.app.usecases.base.ListenerResponseFirabase;
@@ -129,6 +133,7 @@ public class UserService {
 
     }
 
+    //TODO ESPERAR CREACION DE PANTALLA DE CONFIGURACION DE USUARIO PARA AGREGAR EVENTO
     public void update(UsuarioPost usuarioPost, ListenerResponseFirabase listenerResponseFirabase){
 
         if(usuarioPost==null
@@ -141,7 +146,14 @@ public class UserService {
             return;
         }
 
-        //TODO TERMINAR DE IMPLEMENTAR
+        Map<String,Object> mapUser=this.usuarioPostToMapToSave(usuarioPost);
+
+        this.baseDatos.collection("usuarios")
+                .document(usuarioPost.getEmail())
+                .update(mapUser)
+                .addOnCompleteListener(task -> {
+                    listenerResponseFirabase.notifyChange(task.isSuccessful());
+                });
     }
 
 }
