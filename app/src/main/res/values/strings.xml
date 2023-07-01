@@ -36,6 +36,13 @@
     <string name="Home_btnRelajarse">Relajarse</string>
     <string name="Home_btnMusica">Musica</string>
 
+    <!--STRING DIARIO ACTIVITY-->
+    <string name="Diario_NameApp">MindSpace</string>
+    <string name="Diario_btnNuevaNota">Nueva Nota</string>
+    <string name="Diario_Notas">Todas las Notas</string>
+    <string name="Diario_Lectura">Modo Lectura</string>
+
+
 
 
 
