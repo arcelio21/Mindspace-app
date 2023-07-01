@@ -29,7 +29,7 @@
             app:tint="#FFFFFF">
         </ImageButton>
 
-        <!--- Texto de Nueva Nota -->
+        <!--- Texto de Mindspace -->
         <TextView
             android:id="@+id/NameApp"
             android:layout_width="wrap_content"
