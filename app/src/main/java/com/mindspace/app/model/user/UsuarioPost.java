@@ -14,6 +14,4 @@ public class UsuarioPost{
     private String nombre;
     private String apellido;
     private Integer edad;
-    private Boolean compañero;
-    private Integer idTema;
 }
