@@ -1,19 +1,16 @@
 package com.mindspace.app.provider.service.firebase.user;
 
-import android.util.Log;
-
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mindspace.app.model.user.AuthenticationUser;
-import com.mindspace.app.model.user.UsuarioGet;
 import com.mindspace.app.model.user.UsuarioPost;
 import com.mindspace.app.usecases.base.ListenerAuthentication;
 import com.mindspace.app.usecases.base.ListenerResponseFirabase;
 
-import java.util.Collections;
+import java.util.Date;
 import java.util.Map;
 
 public class UserService {
@@ -61,9 +58,7 @@ public class UserService {
 
     /**
      * Guarda un objeto UsuarioPost en la base de datos.
-     *TODO PENSAR EN PONERLO VOID
      * @param usuarioPost El objeto UsuarioPost a guardar.
-     * @return true si se guarda exitosamente, false de lo contrario.
      */
     private void save(UsuarioPost usuarioPost){
 
@@ -103,7 +98,8 @@ public class UserService {
     private Map<String, Object> usuarioPostToMapToSave(UsuarioPost user){
         return Map.of("nombre", user.getNombre(),
                 "apellido", user.getApellido(),
-                "edad", user.getEdad());
+                "edad", user.getEdad(),
+                "fechaCreacion", new Timestamp(new Date()));
 
     }
 
@@ -146,7 +142,7 @@ public class UserService {
             return;
         }
 
-        Map<String,Object> mapUser=this.usuarioPostToMapToSave(usuarioPost);
+        Map<String,Object> mapUser=this.usuarioPostToMapUpdate(usuarioPost);
 
         this.baseDatos.collection("usuarios")
                 .document(usuarioPost.getEmail())
@@ -156,4 +152,11 @@ public class UserService {
                 });
     }
 
+    private Map<String,Object> usuarioPostToMapUpdate(UsuarioPost usuarioPost){
+        return Map.of("apellido", usuarioPost.getApellido(),
+                "nombre", usuarioPost.getNombre(),
+                "edad", usuarioPost.getNombre(),
+                "ultimaActualizacion", new Timestamp(new Date())
+        );
+    }
 }
