@@ -42,6 +42,16 @@
     <string name="Diario_Notas">Todas las Notas</string>
     <string name="Diario_Lectura">Modo Lectura</string>
 
+    <!--STRING RELAJACION ACTIVITY-->
+    <string name="Relajacion_Subtitulo">Actividades de Relajación</string>
+    <string name="btn_guias">Guias de meditación</string>
+    <string name="btn_conciliar">Conciliar el sueño</string>
+    <string name="btn_respiracion">Respiracion profunda</string>
+    <string name="btn_juegos">Juegos relajantes</string>
+    <string name="btn_colorear">Colorear Mandalas</string>
+    <string name="btn_ejercicios">Ejercicios de Mindfulness</string>
+    <string name="btn_visualizacion">Visualizacion guiada</string>
+
 
 
 

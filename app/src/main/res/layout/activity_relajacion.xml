@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--- Fondo de pantalla -->
+        <ImageView
+            android:id="@+id/backgroundMenuImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/wrelajacion"
+            android:scaleType="centerCrop" />
+
+        <!--- Boton de atras -->
+        <ImageButton
+            android:id="@+id/Diario_Atras"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_back"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="22dp"
+            app:tint="#000000">
+        </ImageButton>
+
+        <!--- Texto de Mindspace -->
+        <TextView
+            android:id="@+id/NameApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Diario_NameApp"
+            android:layout_marginLeft="155dp"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_semibold"
+            />
+
+        <!--- Texto de SubTitulo -->
+        <TextView
+            android:id="@+id/Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Relajacion_Subtitulo"
+            android:layout_marginLeft="100dp"
+            android:textSize="17sp"
+            android:textColor="#000000"
+            android:layout_marginTop="45dp"
+            android:fontFamily="@font/inter_semibold"
+            />
+
+        <!--- Boton de Guias de meditacion -->
+        <Button
+            android:id="@+id/buttonGuias"
+            android:layout_width="370dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="20dp"
+            android:textAllCaps="false"
+            android:layout_marginTop="100dp"
+            app:cornerRadius="100dp"
+            android:backgroundTint="#3E9427"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/btn_guias"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp"
+            app:iconTint="#FDFCFC" />
+
+        <!--- Boton de Conciliar sueno -->
+        <Button
+            android:id="@+id/buttonConciliar"
+            android:layout_width="370dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="20dp"
+            android:textAllCaps="false"
+            android:layout_marginTop="180dp"
+            app:cornerRadius="100dp"
+            android:backgroundTint="#3E9427"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/btn_conciliar"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp"
+            app:iconTint="#FDFCFC" />
+
+        <!--- Boton de respiracion profunda -->
+        <Button
+            android:id="@+id/buttonRespiracion"
+            android:layout_width="370dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="20dp"
+            android:textAllCaps="false"
+            android:layout_marginTop="260dp"
+            app:cornerRadius="100dp"
+            android:backgroundTint="#3E9427"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/btn_respiracion"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp"
+            app:iconTint="#FDFCFC" />
+
+        <!--- Boton de Juegos relajantes -->
+        <Button
+            android:id="@+id/buttonJuegos"
+            android:layout_width="370dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="20dp"
+            android:textAllCaps="false"
+            android:layout_marginTop="340dp"
+            app:cornerRadius="100dp"
+            android:backgroundTint="#3E9427"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/btn_juegos"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp"
+            app:iconTint="#FDFCFC" />
+
+        <!--- Boton de Colorear mandalas -->
+        <Button
+            android:id="@+id/buttonColorear"
+            android:layout_width="370dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="20dp"
+            android:textAllCaps="false"
+            android:layout_marginTop="420dp"
+            app:cornerRadius="100dp"
+            android:backgroundTint="#3E9427"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/btn_colorear"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp"
+            app:iconTint="#FDFCFC" />
+
+        <!--- Boton de Ejercicios de mindfulness -->
+        <Button
+            android:id="@+id/buttonEjercicios"
+            android:layout_width="370dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="20dp"
+            android:textAllCaps="false"
+            android:layout_marginTop="500dp"
+            app:cornerRadius="100dp"
+            android:backgroundTint="#3E9427"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/btn_ejercicios"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp"
+            app:iconTint="#FDFCFC" />
+
+        <!--- Boton de visualizacion guiada -->
+        <Button
+            android:id="@+id/buttonVisualizacion"
+            android:layout_width="370dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="20dp"
+            android:textAllCaps="false"
+            android:layout_marginTop="580dp"
+            app:cornerRadius="100dp"
+            android:backgroundTint="#3E9427"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/btn_visualizacion"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp"
+            app:iconTint="#FDFCFC" />
+
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
