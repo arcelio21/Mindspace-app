@@ -3,20 +3,31 @@ package com.mindspace.app.provider.service.firebase.diario;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.mindspace.app.model.user.DiarioGet;
 import com.mindspace.app.model.user.DiarioPost;
+import com.mindspace.app.usecases.base.ListenerGetFirebase;
 import com.mindspace.app.usecases.base.ListenerResponseFirabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DiarioService {
 
     private final FirebaseAuth authentication;
     private final FirebaseFirestore baseDatos;
-    private final ListenerResponseFirabase responseFirabase;
 
-    public DiarioService(ListenerResponseFirabase responseFirabase) {
-        this.responseFirabase = responseFirabase;
+    private  ListenerResponseFirabase responseFirabase;
+
+    public DiarioService() {
         this.baseDatos = FirebaseFirestore.getInstance();
         this.authentication = FirebaseAuth.getInstance();
     }
+
+    public void setResponseFirabase(ListenerResponseFirabase responseFirabase) {
+        this.responseFirabase = responseFirabase;
+    }
+
 
     public void save(DiarioPost diarioPost) {
 
@@ -33,7 +44,6 @@ public class DiarioService {
             this.responseFirabase.notifyChange(task.isSuccessful());
         });
     }
-
     /**
      * VALIDAR EMAIL DEL USUARIO ACTUAL
      * @param email Almacenara email del usuario actual
