@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--- Fondo de pantalla -->
+        <ImageView
+            android:id="@+id/backgroundMenuImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/wdiario"
+            android:scaleType="centerCrop" />
+
+        <!--- Texto de Mindspace -->
+        <TextView
+            android:id="@+id/NameApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Diario_NameApp"
+            android:textSize="20sp"
+            android:layout_marginLeft="55dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_semibold"
+            />
+
+        <!--- Boton de atras -->
+        <ImageButton
+            android:id="@+id/Diario_Atras"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_back"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="22dp"
+            app:tint="#FFFFFF">
+        </ImageButton>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--- Cuadro blanco -->
+            <FrameLayout
+                android:layout_width="360dp"
+                android:layout_height="500dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="25dp"
+                android:background="@drawable/shape_cartawhite"
+                android:padding="16dp">
+
+                <!--- Texto de Crear Notas -->
+                <TextView
+                    android:id="@+id/TextoNotas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/crear_texto"
+                    android:textSize="30sp"
+                    android:textColor="#113199"
+                    android:fontFamily="@font/inter_bold"
+                    android:layout_marginLeft="80dp"
+                    />
+
+                <EditText
+                    android:id="@+id/crear_nota_titulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="60dp"
+                    android:textColorHighlight="#000000"
+                    android:background="@drawable/edittext_bg_crear"
+                    android:fontFamily="@font/inter_regular"
+                    android:hint="@string/crear_titulo"
+                    android:singleLine="true"
+                    android:maxLength="25"
+                    android:textSize="17sp"
+                    android:padding="10dp" />
+
+                <EditText
+                    android:id="@+id/crear_nota_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="130dp"
+                    android:textColorHighlight="#000000"
+                    android:background="@drawable/edittext_bg_crear"
+                    android:fontFamily="@font/inter_light"
+                    android:hint="@string/crear_desc"
+                    android:singleLine="true"
+                    android:maxLength="25"
+                    android:textSize="17sp"
+                    android:padding="10dp" />
+            </FrameLayout>
+
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnGuardarNota"
+            android:layout_width="360dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="600dp"
+            android:layout_marginLeft="25dp"
+            android:backgroundTint="#FDFDFD"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/btn_guardar"
+            android:textColor="#113199"
+            android:textSize="15sp"
+            />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
