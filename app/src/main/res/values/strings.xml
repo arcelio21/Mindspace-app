@@ -20,7 +20,7 @@
     <string name="Register_et_hint_edad">Edad</string>
     <string name="Register_et_hint_email">Correo Electrónico</string>
     <string name="Register_et_hint_password">Contraseña</string>
-    <string name="Register_btnRegister">Registrase</string>
+    <string name="Register_btnRegister">Registrarse</string>
     <string name="Register_btnBackLogin">Ya tengo cuenta</string>
 
     <!--STRING HOME ACTIVITY-->
@@ -52,7 +52,11 @@
     <string name="btn_ejercicios">Ejercicios de Mindfulness</string>
     <string name="btn_visualizacion">Visualizacion guiada</string>
 
-
+    <!--STRING CREAR NOTA ACTIVITY-->
+    <string name="crear_texto">Crear Nota</string>
+    <string name="crear_titulo">Titulo</string>
+    <string name="crear_desc">Descripcion</string>
+    <string name="btn_guardar">Guardar</string>
 
 
 
