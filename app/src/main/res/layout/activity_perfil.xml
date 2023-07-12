@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--- Fondo de pantalla -->
+        <ImageView
+            android:id="@+id/backgroundMenuImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/fondomenu"
+            android:scaleType="centerCrop" />
+
+        <!--- Texto de titulo -->
+        <TextView
+            android:id="@+id/NameApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Diario_NameApp"
+            android:textSize="20sp"
+            android:layout_marginLeft="55dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/inter_semibold"
+            />
+
+        <!--- Boton de atras -->
+        <ImageButton
+            android:id="@+id/Diario_Atras"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_back"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="22dp"
+            app:tint="#FFFFFF">
+        </ImageButton>
+
+        <!--- Cuadro blanco -->
+        <FrameLayout
+            android:layout_width="360dp"
+            android:layout_height="480dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="25dp"
+            android:background="@drawable/shape_cartawhite"
+            android:padding="16dp">
+
+        <!--- Titulo de Editar Perfil -->
+        <TextView
+            android:id="@+id/TituloMensaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/Editar_titulo"
+            android:textColor="#6200EE"
+            android:layout_marginLeft="70dp"
+            android:textSize="30sp" />
+
+            <!--- Texto nombre -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/Register_et_hint_nombre"
+                android:layout_marginTop="60dp"
+                android:textColor="#050405"
+                android:textSize="20sp" />
+
+            <!--- Edittext del nombre -->
+            <EditText
+                android:id="@+id/ed_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="90dp"
+                android:textColorHighlight="#000000"
+                android:background="@drawable/edittext_bg_editar"
+                android:fontFamily="@font/inter_regular"
+                android:singleLine="true"
+                android:maxLength="25"
+                android:textSize="17sp"
+                android:padding="10dp" />
+
+            <!--- Texto Apellido -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/Register_et_hint_apellido"
+                android:layout_marginTop="160dp"
+                android:textColor="#030304"
+                android:textSize="20sp" />
+
+            <!--- Edittext del Apellido -->
+            <EditText
+                android:id="@+id/ed_apellido"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="190dp"
+                android:textColorHighlight="#000000"
+                android:background="@drawable/edittext_bg_editar"
+                android:fontFamily="@font/inter_regular"
+                android:singleLine="true"
+                android:maxLength="25"
+                android:textSize="17sp"
+                android:padding="10dp" />
+
+            <!--- Texto Edad -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/Register_et_hint_edad"
+                android:layout_marginTop="260dp"
+                android:textColor="#030304"
+                android:textSize="20sp" />
+
+            <!--- Edittext del Edad -->
+            <EditText
+                android:id="@+id/ed_edad"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="290dp"
+                android:textColorHighlight="#000000"
+                android:background="@drawable/edittext_bg_editar"
+                android:fontFamily="@font/inter_regular"
+                android:singleLine="true"
+                android:maxLength="25"
+                android:textSize="17sp"
+                android:padding="10dp" />
+
+            <!--- Texto email -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/Register_et_hint_email"
+                android:layout_marginTop="360dp"
+                android:textColor="#030304"
+                android:textSize="20sp" />
+
+            <!--- Edittext del email -->
+            <EditText
+                android:id="@+id/ed_email"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="390dp"
+                android:textColorHighlight="#000000"
+                android:background="@drawable/edittext_bg_editar"
+                android:fontFamily="@font/inter_regular"
+                android:singleLine="true"
+                android:maxLength="25"
+                android:textSize="17sp"
+                android:padding="10dp" />
+        </FrameLayout>
+        <Button
+            android:id="@+id/btnGuardarPerfil"
+            android:layout_width="360dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="570dp"
+            android:layout_marginLeft="25dp"
+            android:backgroundTint="#7829EA"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/btn_guardar"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
