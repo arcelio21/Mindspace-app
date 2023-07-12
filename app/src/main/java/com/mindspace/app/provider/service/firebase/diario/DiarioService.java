@@ -4,13 +4,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mindspace.app.model.user.DiarioPost;
+import com.mindspace.app.usecases.base.ListenerResponseFirabase;
 
 public class DiarioService {
 
     private final FirebaseAuth authentication;
     private final FirebaseFirestore baseDatos;
+    private final ListenerResponseFirabase responseFirabase;
 
-    public DiarioService() {
+    public DiarioService(ListenerResponseFirabase responseFirabase) {
+        this.responseFirabase = responseFirabase;
         this.baseDatos = FirebaseFirestore.getInstance();
         this.authentication = FirebaseAuth.getInstance();
     }
@@ -26,8 +29,8 @@ public class DiarioService {
         Task<Void> response  = baseDatos
                 .collection("usuarios").document(emailCurrentUser)
                 .collection("diarios").document().set(diarioPost);
-        response.addOnSuccessListener(task->{
-
+        response.addOnCompleteListener(task -> {
+            this.responseFirabase.notifyChange(task.isSuccessful());
         });
     }
 
