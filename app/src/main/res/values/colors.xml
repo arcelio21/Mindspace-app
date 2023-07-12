@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="btn_login">#E5E5E5</color>
     <color name="btn_disabled">#CFBAEE</color>
+    <color name="date_diario">#3A3737</color>
 
 </resources>
