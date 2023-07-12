@@ -1,6 +1,8 @@
 package com.mindspace.app.model.user;
 
 
+import java.util.Date;
+
 import lombok.Builder;
 import lombok.Getter;
 
@@ -14,5 +16,7 @@ public class DiarioPost {
 
     private String titulo;
     private String cuerpo;
-    private String fecha;
+
+
 }
+
