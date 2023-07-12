@@ -58,7 +58,8 @@
     <string name="crear_desc">Descripcion</string>
     <string name="btn_guardar">Guardar</string>
 
-
+    <!--STRING EDITAR PERFIL ACTIVITY-->
+    <string name="Editar_titulo">Editar Perfil</string>
 
 
 
