@@ -14,6 +14,9 @@
         <activity android:name=".usecases.listdiario.DiarioAcitivity"
             android:exported="false"
             />
+        <activity android:name=".usecases.creatediary.CreateDiarioActivity"
+            android:exported="false"
+            />
         <activity
             android:name=".usecases.home.HomeActivity"
             android:exported="false" />
