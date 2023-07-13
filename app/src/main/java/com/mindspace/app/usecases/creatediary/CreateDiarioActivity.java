@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.mindspace.app.R;
+import com.mindspace.app.model.user.DiarioPost;
 import com.mindspace.app.usecases.listdiario.DiarioAcitivity;
 
 public class CreateDiarioActivity extends AppCompatActivity {
@@ -31,12 +33,33 @@ public class CreateDiarioActivity extends AppCompatActivity {
 
         this.etTitulo = findViewById(R.id.crear_nota_titulo);
         this.etCuerpo = findViewById(R.id.crear_nota_desc);
+        this.setOberverCreateNoteResponse();
     }
 
     private void setListenerBtnCrearNota(){
         btnCrearNota.setOnClickListener(view ->{
-            Intent intent = new Intent (CreateDiarioActivity.this, DiarioAcitivity.class);
-            startActivity(intent);
+
+            String titulo = this.etTitulo.getText().toString();
+            String cuerpo = this.etCuerpo.getText().toString();
+
+            DiarioPost diarioPost = DiarioPost.builder()
+                    .cuerpo(cuerpo)
+                    .titulo(titulo)
+                    .build();
+
+            this.createViewModel.save(diarioPost);
+        });
+    }
+
+    private void setOberverCreateNoteResponse(){
+        this.createViewModel.getReponse().observe(this,response -> {
+
+            if(response){
+                Intent diarioList = new Intent(this, DiarioAcitivity.class);
+                startActivity(diarioList);
+            }else {
+                Toast.makeText(this,"No se puedo guardar informacion", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }
