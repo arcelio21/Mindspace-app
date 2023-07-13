@@ -140,7 +140,7 @@ public class UserService {
                 || usuarioPost.getApellido()==null || usuarioPost.getApellido().trim().isEmpty()
                 || usuarioPost.getEdad()==null || usuarioPost.getEdad()<=0
         ){
-            listenerResponseFirabase.notifyChange(null);
+            listenerResponseFirabase.notifyChange(false);
             return;
         }
 

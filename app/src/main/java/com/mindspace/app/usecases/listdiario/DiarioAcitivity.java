@@ -2,7 +2,6 @@ package com.mindspace.app.usecases.listdiario;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
@@ -57,7 +56,6 @@ public class DiarioAcitivity extends AppCompatActivity {
     private void setObserverListDiario(DiarioViewModel diarioVm){
         diarioVm.getDiarosList().observe(this, data ->{
 
-            Log.d("OBSERVER", data.get(0).getCuerpo());
             if (data!=null && !data.isEmpty()){
                 this.diarioList = data;
                 this.diarioAdapterRV.setDiarioList(diarioList);
