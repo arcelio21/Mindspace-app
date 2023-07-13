@@ -9,17 +9,28 @@ import com.mindspace.app.provider.service.firebase.user.UserService;
 import com.mindspace.app.usecases.base.ListenerAuthentication;
 import com.mindspace.app.usecases.base.ListenerResponseFirabase;
 
-public class CreateViewModel extends ViewModel implements ListenerAuthentication {
+public class CreateViewModel extends ViewModel implements ListenerResponseFirabase {
 
     private DiarioService diarioService;
     private final MutableLiveData<Boolean> reponse = new MutableLiveData<>();
 
 
-public void save(DiarioPost diarioPost){
-    diarioService.save(diarioPost);
-}
-    @Override
-    public void notifyResponse(Boolean response) {
+    public CreateViewModel() {
+        this.diarioService = new DiarioService();
+        this.diarioService.setResponseFirabase(this);
+    }
 
+    public void save(DiarioPost diarioPost){
+        diarioService.save(diarioPost);
+    }
+
+
+    public MutableLiveData<Boolean> getReponse() {
+        return reponse;
+    }
+
+    @Override
+    public void notifyChange(Boolean response) {
+        this.reponse.postValue(response);
     }
 }
