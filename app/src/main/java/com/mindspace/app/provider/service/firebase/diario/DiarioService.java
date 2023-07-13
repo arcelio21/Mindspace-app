@@ -3,6 +3,7 @@ package com.mindspace.app.provider.service.firebase.diario;
 import android.util.Log;
 
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -13,7 +14,10 @@ import com.mindspace.app.usecases.base.ListenerGetFirebase;
 import com.mindspace.app.usecases.base.ListenerResponseFirabase;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public class DiarioService {
 
@@ -40,11 +44,16 @@ public class DiarioService {
             return;
         }
 
+        Map<String,Object> diarioMap = this.convertDiarioPostToMap(diarioPost);
         Task<Void> response  = baseDatos
                 .collection("usuarios").document(idCurrentUser)
-                .collection("diarios").document().set(diarioPost);
+                .collection("diarios").document().set(diarioMap);
+
         response.addOnCompleteListener(task -> {
             this.responseFirabase.notifyChange(task.isSuccessful());
+        });
+        response.addOnFailureListener(runnable -> {
+            Log.d("ERROR", runnable.getMessage());
         });
     }
 
@@ -96,5 +105,14 @@ public class DiarioService {
         }
 
         return id;
+    }
+
+    private Map<String, Object> convertDiarioPostToMap(DiarioPost diarioPost){
+
+        return Map.of("titulo", diarioPost.getTitulo(),
+                "cuerpo", diarioPost.getCuerpo(),
+                "fechaCreacion", new Timestamp(new Date()),
+                "ultimaActualizacion", new Timestamp(new Date())
+        );
     }
 }
