@@ -67,13 +67,14 @@ public class UserService {
              || usuarioPost.getNombre()==null || usuarioPost.getNombre().trim().isEmpty()
              || usuarioPost.getApellido()==null || usuarioPost.getApellido().trim().isEmpty()
              || usuarioPost.getEdad()==null || usuarioPost.getEdad()<=0
+                || this.authentication.getUid()==null
         ){
             this.listenerAuth.notifyResponse(false);
             return;
         }
 
         Task<Void> response = this.baseDatos.collection("usuarios")
-                .document(usuarioPost.getEmail())
+                .document(this.authentication.getUid())
                 .set(this.usuarioPostToMapToSave(usuarioPost));
 
         response.addOnCompleteListener(task -> {
@@ -97,6 +98,7 @@ public class UserService {
      */
     private Map<String, Object> usuarioPostToMapToSave(UsuarioPost user){
         return Map.of("nombre", user.getNombre(),
+                "email",user.getEmail(),
                 "apellido", user.getApellido(),
                 "edad", user.getEdad(),
                 "fechaCreacion", new Timestamp(new Date()));
