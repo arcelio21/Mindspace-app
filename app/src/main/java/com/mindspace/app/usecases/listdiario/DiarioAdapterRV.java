@@ -54,14 +54,17 @@ public class DiarioAdapterRV extends RecyclerView.Adapter<DiarioAdapterRV.ItemsD
 
         public ItemsDiarioViewHolder(@NonNull View itemView) {
             super(itemView);
+            this.tvTitle = itemView.findViewById(R.id.itemDiario_name);
+            this.tvLastUpdate = itemView.findViewById(R.id.itemDiario_lastUpdate);
+            this.tvCreationDate = itemView.findViewById(R.id.itemDiario_creationDate);
         }
 
         public void setData(DiarioGet diario) {
             this.diario = diario;
 
             this.tvTitle.setText(diario.getTitulo());
-            this.tvCreationDate.setText(diario.getFechaCreacion());
-            this.tvLastUpdate.setText(diario.getUltimaActualizacion());
+            this.tvCreationDate.setText(diario.getFechaCreacion().toDate().toString());
+            this.tvLastUpdate.setText(diario.getUltimaActualizacion().toDate().toString());
         }
     }
 }
