@@ -8,9 +8,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.Timestamp;
 import com.mindspace.app.R;
 import com.mindspace.app.model.user.DiarioGet;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 public class DiarioAdapterRV extends RecyclerView.Adapter<DiarioAdapterRV.ItemsDiarioViewHolder> {
@@ -62,9 +67,19 @@ public class DiarioAdapterRV extends RecyclerView.Adapter<DiarioAdapterRV.ItemsD
         public void setData(DiarioGet diario) {
             this.diario = diario;
 
+            String fechaCreacion = "Creacion: "+this.convertTimesTampToLocalDate(this.diario.getFechaCreacion());
+            String ultimaActualizacion = "Actualizacion: "+this.convertTimesTampToLocalDate(this.diario.getUltimaActualizacion());
+
             this.tvTitle.setText(diario.getTitulo());
-            this.tvCreationDate.setText(diario.getFechaCreacion().toDate().toString());
-            this.tvLastUpdate.setText(diario.getUltimaActualizacion().toDate().toString());
+            this.tvCreationDate.setText(fechaCreacion);
+            this.tvLastUpdate.setText(ultimaActualizacion);
         }
+
+        private String convertTimesTampToLocalDate(Timestamp timestamp){
+            Date date = timestamp.toDate();
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            return date.toInstant().atZone(ZoneId.systemDefault()).format(dateTimeFormatter);
+        }
+
     }
 }
