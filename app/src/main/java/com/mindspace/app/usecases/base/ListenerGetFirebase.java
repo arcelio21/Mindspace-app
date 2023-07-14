@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface ListenerGetFirebase<GET> {
 
-    void getData(List<GET> data);
+    void getData(GET data);
 }
