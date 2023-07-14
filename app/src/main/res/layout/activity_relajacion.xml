@@ -63,14 +63,15 @@
             android:layout_width="370dp"
             android:layout_height="65dp"
             android:layout_marginLeft="20dp"
-            android:textAllCaps="false"
             android:layout_marginTop="100dp"
-            app:cornerRadius="100dp"
             android:backgroundTint="#3E9427"
             android:fontFamily="@font/inter_bold"
+            android:onClick="listenerBtn"
             android:text="@string/btn_guias"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16dp"
+            app:cornerRadius="100dp"
             app:iconTint="#FDFCFC" />
 
         <!--- Boton de Conciliar sueno -->
@@ -79,14 +80,15 @@
             android:layout_width="370dp"
             android:layout_height="65dp"
             android:layout_marginLeft="20dp"
-            android:textAllCaps="false"
             android:layout_marginTop="180dp"
-            app:cornerRadius="100dp"
             android:backgroundTint="#3E9427"
             android:fontFamily="@font/inter_bold"
+            android:onClick="listenerBtn"
             android:text="@string/btn_conciliar"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16dp"
+            app:cornerRadius="100dp"
             app:iconTint="#FDFCFC" />
 
         <!--- Boton de respiracion profunda -->
@@ -95,14 +97,15 @@
             android:layout_width="370dp"
             android:layout_height="65dp"
             android:layout_marginLeft="20dp"
-            android:textAllCaps="false"
             android:layout_marginTop="260dp"
-            app:cornerRadius="100dp"
             android:backgroundTint="#3E9427"
             android:fontFamily="@font/inter_bold"
+            android:onClick="listenerBtn"
             android:text="@string/btn_respiracion"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16dp"
+            app:cornerRadius="100dp"
             app:iconTint="#FDFCFC" />
 
         <!--- Boton de Juegos relajantes -->
@@ -111,14 +114,15 @@
             android:layout_width="370dp"
             android:layout_height="65dp"
             android:layout_marginLeft="20dp"
-            android:textAllCaps="false"
             android:layout_marginTop="340dp"
-            app:cornerRadius="100dp"
             android:backgroundTint="#3E9427"
             android:fontFamily="@font/inter_bold"
+            android:onClick="listenerBtn"
             android:text="@string/btn_juegos"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16dp"
+            app:cornerRadius="100dp"
             app:iconTint="#FDFCFC" />
 
         <!--- Boton de Colorear mandalas -->
@@ -127,14 +131,15 @@
             android:layout_width="370dp"
             android:layout_height="65dp"
             android:layout_marginLeft="20dp"
-            android:textAllCaps="false"
             android:layout_marginTop="420dp"
-            app:cornerRadius="100dp"
             android:backgroundTint="#3E9427"
             android:fontFamily="@font/inter_bold"
+            android:onClick="listenerBtn"
             android:text="@string/btn_colorear"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16dp"
+            app:cornerRadius="100dp"
             app:iconTint="#FDFCFC" />
 
         <!--- Boton de Ejercicios de mindfulness -->
@@ -143,14 +148,15 @@
             android:layout_width="370dp"
             android:layout_height="65dp"
             android:layout_marginLeft="20dp"
-            android:textAllCaps="false"
             android:layout_marginTop="500dp"
-            app:cornerRadius="100dp"
             android:backgroundTint="#3E9427"
             android:fontFamily="@font/inter_bold"
+            android:onClick="listenerBtn"
             android:text="@string/btn_ejercicios"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16dp"
+            app:cornerRadius="100dp"
             app:iconTint="#FDFCFC" />
 
         <!--- Boton de visualizacion guiada -->
@@ -159,14 +165,15 @@
             android:layout_width="370dp"
             android:layout_height="65dp"
             android:layout_marginLeft="20dp"
-            android:textAllCaps="false"
             android:layout_marginTop="580dp"
-            app:cornerRadius="100dp"
             android:backgroundTint="#3E9427"
             android:fontFamily="@font/inter_bold"
+            android:onClick="listenerBtn"
             android:text="@string/btn_visualizacion"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16dp"
+            app:cornerRadius="100dp"
             app:iconTint="#FDFCFC" />
 
 
