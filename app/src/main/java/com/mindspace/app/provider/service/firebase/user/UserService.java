@@ -1,13 +1,17 @@
 package com.mindspace.app.provider.service.firebase.user;
 
+import android.util.Log;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mindspace.app.model.user.AuthenticationUser;
+import com.mindspace.app.model.user.UsuarioGet;
 import com.mindspace.app.model.user.UsuarioPost;
 import com.mindspace.app.usecases.base.ListenerAuthentication;
+import com.mindspace.app.usecases.base.ListenerGetFirebase;
 import com.mindspace.app.usecases.base.ListenerResponseFirabase;
 
 import java.util.Date;
@@ -21,12 +25,40 @@ public class UserService {
     private final ListenerAuthentication listenerAuth;
 
 
+
     public UserService(ListenerAuthentication authentication) {
         this.baseDatos = FirebaseFirestore.getInstance();
         this.authentication = FirebaseAuth.getInstance();
         this.listenerAuth=authentication;
     }
 
+
+    public void getUserCurrent(ListenerGetFirebase<UsuarioGet> listenerGetFirebase){
+        String idCurrentUser = this.validateIdCurrentUser();
+
+        this.baseDatos.collection("usuarios")
+                .document(idCurrentUser)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()){
+                        String email = task.getResult().get("email",String.class);
+                        Integer edad = task.getResult().get("edad", Integer.class);
+                        String nombre = task.getResult().get("nombre", String.class);
+                        String apellido = task.getResult().get("apellido", String.class);
+
+                        UsuarioGet usuarioGet = new UsuarioGet();
+                        usuarioGet.setEmail(email);
+                        usuarioGet.setNombre(nombre);
+                        usuarioGet.setApellido(apellido);
+                        usuarioGet.setEdad(edad);
+
+                        listenerGetFirebase.getData(usuarioGet);
+                    }
+                })
+                .addOnFailureListener(runnable -> {
+                    Log.d("Erro", runnable.getMessage());
+                });
+    }
 
     /**
      Crea una cuenta de usuario utilizando el servicio de autenticación.
@@ -160,5 +192,25 @@ public class UserService {
                 "edad", usuarioPost.getNombre(),
                 "ultimaActualizacion", new Timestamp(new Date())
         );
+    }
+
+    /**
+     * VALIDAR EMAIL DEL USUARIO ACTUAL
+     * @return response
+     */
+    private String validateIdCurrentUser(){
+
+        String id ="";
+
+        if (this.authentication.getCurrentUser() == null) {
+            return "";
+        }
+        id= this.authentication.getCurrentUser().getUid();
+
+        if (id.trim().isEmpty()){
+            return "";
+        }
+
+        return id;
     }
 }
