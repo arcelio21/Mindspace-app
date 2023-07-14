@@ -60,7 +60,7 @@ public class DiarioService {
     /**
      * OBTENER TODOS LOS DIARIOS CREADOS POR UN USUARIO
      */
-    public void getAll(ListenerGetFirebase<DiarioGet> listener){
+    public void getAll(ListenerGetFirebase<List<DiarioGet>> listener){
         String idCurrentUser=this.validateIdCurrentUser("");
 
         if(idCurrentUser.trim().isEmpty()){
