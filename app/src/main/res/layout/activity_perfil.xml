@@ -77,7 +77,7 @@
 
             <!--- Edittext del nombre -->
             <EditText
-                android:id="@+id/ed_nombre"
+                android:id="@+id/Perfil_ed_nombre"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="90dp"
@@ -101,7 +101,7 @@
 
             <!--- Edittext del Apellido -->
             <EditText
-                android:id="@+id/ed_apellido"
+                android:id="@+id/Perfil_ed_apellido"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="190dp"
@@ -125,7 +125,7 @@
 
             <!--- Edittext del Edad -->
             <EditText
-                android:id="@+id/ed_edad"
+                android:id="@+id/Perfil_ed_edad"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="290dp"
@@ -149,7 +149,7 @@
 
             <!--- Edittext del email -->
             <EditText
-                android:id="@+id/ed_email"
+                android:id="@+id/Perfil_ed_email"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="390dp"
@@ -159,10 +159,11 @@
                 android:singleLine="true"
                 android:maxLength="25"
                 android:textSize="17sp"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:enabled="false"/>
         </FrameLayout>
         <Button
-            android:id="@+id/btnGuardarPerfil"
+            android:id="@+id/Perfil_btnGuardar"
             android:layout_width="360dp"
             android:layout_height="55dp"
             android:layout_marginTop="570dp"
