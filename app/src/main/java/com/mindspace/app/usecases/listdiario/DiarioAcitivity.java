@@ -2,6 +2,7 @@ package com.mindspace.app.usecases.listdiario;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
@@ -12,12 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mindspace.app.R;
 import com.mindspace.app.model.user.DiarioGet;
+import com.mindspace.app.usecases.base.ListenerClickItemAdapter;
 import com.mindspace.app.usecases.creatediary.CreateDiarioActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DiarioAcitivity extends AppCompatActivity {
+public class DiarioAcitivity extends AppCompatActivity implements ListenerClickItemAdapter {
 
     private DiarioViewModel diarioViewModel;
     private DiarioAdapterRV diarioAdapterRV;
@@ -45,7 +47,7 @@ public class DiarioAcitivity extends AppCompatActivity {
 
         this.diarioViewModel.getAll();
 
-        this.diarioAdapterRV = new DiarioAdapterRV(this.diarioList);
+        this.diarioAdapterRV = new DiarioAdapterRV(this.diarioList, this);
 
         this.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         this.recyclerView.setAdapter(this.diarioAdapterRV);
@@ -64,4 +66,11 @@ public class DiarioAcitivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void clickItem(Integer position) {
+        Intent updateNote = new Intent(this, CreateDiarioActivity.class);
+        Log.d("IDlis", this.diarioList.get(position).getId().toString());
+        updateNote.putExtra("idNote", this.diarioList.get(position).getId());
+        startActivity(updateNote);
+    }
 }

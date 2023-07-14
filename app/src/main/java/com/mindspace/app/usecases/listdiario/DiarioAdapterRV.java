@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.Timestamp;
 import com.mindspace.app.R;
 import com.mindspace.app.model.user.DiarioGet;
+import com.mindspace.app.usecases.base.ListenerClickItemAdapter;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -22,23 +24,24 @@ public class DiarioAdapterRV extends RecyclerView.Adapter<DiarioAdapterRV.ItemsD
 
 
     private List<DiarioGet> diarioList;
+    private ListenerClickItemAdapter clickItemAdapter;
 
-    public DiarioAdapterRV(List<DiarioGet> diarioList) {
+    public DiarioAdapterRV(List<DiarioGet> diarioList, ListenerClickItemAdapter itemAdapter) {
         this.diarioList = diarioList;
+        this.clickItemAdapter = itemAdapter;
     }
 
     @NonNull
     @Override
     public ItemsDiarioViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.items_notas, parent, false);
-
         return new ItemsDiarioViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ItemsDiarioViewHolder holder, int position) {
-
         holder.setData(this.diarioList.get(position));
+        holder.getView().setOnClickListener(view -> this.clickItemAdapter.clickItem(position));
     }
 
     @Override
@@ -79,6 +82,10 @@ public class DiarioAdapterRV extends RecyclerView.Adapter<DiarioAdapterRV.ItemsD
             Date date = timestamp.toDate();
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             return date.toInstant().atZone(ZoneId.systemDefault()).format(dateTimeFormatter);
+        }
+
+        public View getView(){
+            return super.itemView;
         }
 
     }

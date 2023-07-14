@@ -16,7 +16,7 @@ import lombok.Setter;
 @Getter
 public class DiarioGet {
 
-    private Long id;
+    private String id;
     private String titulo;
     private String cuerpo;
     private  Timestamp fechaCreacion;

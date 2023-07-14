@@ -36,6 +36,24 @@ public class DiarioService {
     }
 
 
+    public void getById(ListenerGetFirebase<DiarioGet> listenerGetFirebase, String id){
+
+        String idUser = this.validateIdCurrentUser("");
+        this.baseDatos.collection("usuarios")
+                .document(idUser)
+                .collection("diarios")
+                .document(id)
+                .get()
+                .addOnCompleteListener(task -> {
+                    if(task.isSuccessful()){
+                        DiarioGet diarioGet = task.getResult().toObject(DiarioGet.class);
+                        listenerGetFirebase.getData(diarioGet);
+                    }
+                })
+                .addOnFailureListener(runnable -> {
+                   Log.d("Error", runnable.getMessage());
+                });
+    }
     public void save(DiarioPost diarioPost) {
 
         String idCurrentUser = this.validateIdCurrentUser("");
@@ -74,8 +92,18 @@ public class DiarioService {
                 .addOnCompleteListener(query -> {
                     Log.d("SUCCESS", query.isSuccessful()+"");
                     if(query.isSuccessful()){
-                        Log.d("GET DIARIOS", query.isSuccessful()+"");
-                        List<DiarioGet> diarios = query.getResult().toObjects(DiarioGet.class);
+                        List<DiarioGet> diarios = new ArrayList<>();
+                        query.getResult().forEach(data ->{
+                            DiarioGet diarioGet= new DiarioGet();
+                            diarioGet.setId(data.getId());
+                            diarioGet.setCuerpo(data.get("cuerpo", String.class));
+                            diarioGet.setTitulo(data.get("titulo", String.class));
+                            diarioGet.setFechaCreacion(data.get("fechaCreacion", Timestamp.class));
+                            diarioGet.setUltimaActualizacion(data.get("ultimaActualizacion", Timestamp.class));
+
+                            diarios.add(diarioGet);
+
+                        });
                         listener.getData(diarios);
                     }
                 })
