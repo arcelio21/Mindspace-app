@@ -9,7 +9,7 @@ import com.mindspace.app.usecases.base.ListenerGetFirebase;
 
 import java.util.List;
 
-public class DiarioViewModel  extends ViewModel implements ListenerGetFirebase<DiarioGet> {
+public class DiarioViewModel  extends ViewModel implements ListenerGetFirebase<List<DiarioGet>> {
 
     private MutableLiveData<List<DiarioGet>> diarosList ;
 
