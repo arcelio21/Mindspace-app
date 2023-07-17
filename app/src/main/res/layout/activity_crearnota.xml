@@ -93,8 +93,10 @@
                     android:background="@drawable/edittext_bg_crear"
                     android:fontFamily="@font/inter_light"
                     android:hint="@string/crear_desc"
+                    android:gravity="top"
                     android:singleLine="true"
-                    android:maxLength="25"
+                    android:maxLength="250"
+                    android:inputType="textMultiLine"
                     android:textSize="17sp"
                     android:padding="10dp" />
             </FrameLayout>

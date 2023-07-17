@@ -28,7 +28,6 @@ public class CreateDiarioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_crearnota);
 
         String idNote = getIntent().getStringExtra("idNote");
-        Log.d("ID", idNote);
 
         this.createViewModel = new ViewModelProvider(this).get(CreateViewModel.class);
 
@@ -38,7 +37,7 @@ public class CreateDiarioActivity extends AppCompatActivity {
         this.etTitulo = findViewById(R.id.crear_nota_titulo);
         this.etCuerpo = findViewById(R.id.crear_nota_desc);
 
-        if(idNote.trim().isEmpty()){
+        if(idNote==null || idNote.trim().isEmpty()){
             this.setOberverCreateNoteResponse();
             this.setListenerBtnCrearNota();
         }else {
