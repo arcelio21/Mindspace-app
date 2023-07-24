@@ -46,20 +46,28 @@
     <string name="Relajacion_Subtitulo">Actividades de Relajación</string>
     <string name="btn_guias">Guias de meditación</string>
     <string name="btn_conciliar">Conciliar el sueño</string>
-    <string name="btn_respiracion">Respiracion profunda</string>
+    <string name="btn_respiracion">Respiración profunda</string>
     <string name="btn_juegos">Juegos relajantes</string>
     <string name="btn_colorear">Colorear Mandalas</string>
     <string name="btn_ejercicios">Ejercicios de Mindfulness</string>
-    <string name="btn_visualizacion">Visualizacion guiada</string>
+    <string name="btn_visualizacion">Visualización guiada</string>
 
     <!--STRING CREAR NOTA ACTIVITY-->
     <string name="crear_texto">Crear Nota</string>
-    <string name="crear_titulo">Titulo</string>
-    <string name="crear_desc">Descripcion</string>
+    <string name="crear_titulo">Título</string>
+    <string name="crear_desc">Descripción</string>
     <string name="btn_guardar">Guardar</string>
 
     <!--STRING EDITAR PERFIL ACTIVITY-->
     <string name="Editar_titulo">Editar Perfil</string>
+
+    <!--STRING ACTIVITY RELAJACION PROFUNDA-->
+    <string name="Nombre_actividad">Relajación Profunda</string>
+    <string name="Nombre_App">MindSpace</string>
+    <string name="TextoTitulo">TextoTitulo</string>
+    <string name="DescAct">Descripcion</string>
+
+
 
 
 
