@@ -11,18 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.mindspace"
         tools:targetApi="31">
-        <activity android:name=".usecases.listdiario.DiarioAcitivity"
-            android:exported="false"
-            />
-        <activity android:name=".usecases.creatediary.CreateDiarioActivity"
-            android:exported="false"
-            />
-        <activity android:name=".usecases.perfiluser.PerfilActivity"
-            android:exported="false"
-            />
-        <activity android:name=".usecases.relajacion.RelajacionActivity"
-            android:exported="false"
-            />
+        <activity
+            android:name=".usecases.relajacion.RprofundaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".usecases.listdiario.DiarioAcitivity"
+            android:exported="false" />
+        <activity
+            android:name=".usecases.creatediary.CreateDiarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".usecases.perfiluser.PerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".usecases.relajacion.RelajacionActivity"
+            android:exported="false" />
         <activity
             android:name=".usecases.home.HomeActivity"
             android:exported="false" />
